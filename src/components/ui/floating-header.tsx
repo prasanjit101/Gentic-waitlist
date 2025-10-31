@@ -24,7 +24,7 @@ export function FloatingHeader() {
           <Logo showName />
         </div>
         <div className="flex items-center gap-2">
-          <Button variant={'ghost'} size="icon" className="rounded-full" asChild>
+          <Button variant={'ghost'} size="icon" className="hidden md:block rounded-full" asChild>
             <a href="https://github.com/prasanjit101/Gentic-waitlist" target="_blank" rel="noopener noreferrer">
               <img src={githubIcon} alt="GitHub" className="h-5 w-5" />
             </a>
