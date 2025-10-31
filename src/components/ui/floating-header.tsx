@@ -1,6 +1,7 @@
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Logo } from "../logo";
+import githubIcon from "@/assets/github.svg";
 
 export function FloatingHeader() {
   const links = [
@@ -23,6 +24,11 @@ export function FloatingHeader() {
           <Logo showName />
         </div>
         <div className="flex items-center gap-2">
+          <Button variant={'ghost'} size="icon" className="rounded-full" asChild>
+            <a href="https://github.com/prasanjit101/Gentic-waitlist" target="_blank" rel="noopener noreferrer">
+              <img src={githubIcon} alt="GitHub" className="h-5 w-5" />
+            </a>
+          </Button>
           <div className="items-center gap-1 flex">
             {links.map((link) => (
               <a
