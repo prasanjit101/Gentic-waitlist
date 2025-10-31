@@ -3,11 +3,11 @@ import { MeshGradient } from "@paper-design/shaders-react";
 import { Card } from "./components/ui/card";
 import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
-import OfferCarouselDemo from "./components/hero-carousel";
+import HeroImage from "./components/hero-image";
 
 export default function App() {
   return (
-    <div className="relative w-full max-w-2xl mx-auto px-4">
+    <div className="relative w-full max-w-2xl mx-auto px-4" id="waitlist">
       <MeshGradient
         width={1280}
         height={720}
@@ -38,9 +38,9 @@ export default function App() {
             and be the first to get in.
           </p>
           <TallyForm />
-          <OfferCarouselDemo />
+          <HeroImage />
         </Card>
-        <Card className="flex flex-col p-4 md:p-16">
+        <Card className="flex flex-col p-4 md:p-16" id="about">
           <Logo showName />
           <p className="max-w-lg text-justify">
             AcMem retains context across sessions, learns from past

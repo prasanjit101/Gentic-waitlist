@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils"; // Your utility for merging Tailwind classes
 
-// Define the type for a single offer item
-export interface Offer {
+// Define the type for a single items item
+export interface Item {
   id: string | number;
   imageSrc: string;
   imageAlt: string;
@@ -13,13 +13,13 @@ export interface Offer {
 }
 
 // Props for the OfferCard component
-interface OfferCardProps {
-  offer: Offer;
+interface ItemCardProps {
+  item: Item;
 }
 
 // The individual card component with hover animation
-const OfferCard = React.forwardRef<HTMLAnchorElement, OfferCardProps>(
-  ({ offer }) => (
+const ItemCard = React.forwardRef<HTMLAnchorElement, ItemCardProps>(
+  ({ item }) => (
     <motion.div
       className="relative shrink-0 w-[300px] h-[350px] rounded-2xl overflow-hidden group snap-start"
       whileHover={{ y: -8 }}
@@ -28,8 +28,8 @@ const OfferCard = React.forwardRef<HTMLAnchorElement, OfferCardProps>(
     >
       {/* Background Image */}
       <img
-        src={offer.imageSrc}
-        alt={offer.imageAlt}
+        src={item.imageSrc}
+        alt={item.imageAlt}
         className="absolute inset-0 w-full h-2/4 object-cover transition-transform duration-500 group-hover:scale-110"
       />
       {/* Card Content */}
@@ -37,25 +37,24 @@ const OfferCard = React.forwardRef<HTMLAnchorElement, OfferCardProps>(
         <div className="space-y-2">
           {/* Title & Description */}
           <h3 className="text-lg font-bold text-card-foreground leading-tight">
-            {offer.title}
+            {item.title}
           </h3>
-          <p className="text-sm text-muted-foreground">{offer.description}</p>
+          <p className="text-sm text-muted-foreground">{item.description}</p>
         </div>
       </div>
     </motion.div>
   ),
 );
-OfferCard.displayName = "OfferCard";
+ItemCard.displayName = "OfferCard";
 
-// Props for the OfferCarousel component
-export interface OfferCarouselProps
+export interface ItemCarouselProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  offers: Offer[];
+  items: Item[];
 }
 
 // The main carousel component with scroll functionality
-const OfferCarousel = React.forwardRef<HTMLDivElement, OfferCarouselProps>(
-  ({ offers, className, ...props }, ref) => {
+const ItemCarousel = React.forwardRef<HTMLDivElement, ItemCarouselProps>(
+  ({ items, className, ...props }, ref) => {
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
     const scroll = (direction: "left" | "right") => {
@@ -89,8 +88,8 @@ const OfferCarousel = React.forwardRef<HTMLDivElement, OfferCarouselProps>(
           ref={scrollContainerRef}
           className="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
         >
-          {offers.map((offer) => (
-            <OfferCard key={offer.id} offer={offer} />
+          {items.map((item) => (
+            <ItemCard key={item.id} item={item} />
           ))}
         </div>
 
@@ -106,6 +105,6 @@ const OfferCarousel = React.forwardRef<HTMLDivElement, OfferCarouselProps>(
     );
   },
 );
-OfferCarousel.displayName = "OfferCarousel";
+ItemCarousel.displayName = "ItemCarousel";
 
-export { OfferCarousel, OfferCard };
+export { ItemCarousel, ItemCard };

@@ -6,7 +6,7 @@ export function FloatingHeader() {
   const links = [
     {
       label: "About",
-      href: "#",
+      href: "#about",
     },
   ];
 
@@ -34,7 +34,9 @@ export function FloatingHeader() {
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <Button size="sm">Join Waitlist</Button>
+            <Button size="sm" asChild>
+              <a href="#waitlist">Join Waitlist</a>
+            </Button>
           </div>
         </div>
       </nav>
