@@ -1,13 +1,8 @@
-import React from "react";
-import { Grid2x2PlusIcon, MenuIcon } from "lucide-react";
-import { Sheet, SheetContent, SheetFooter } from "@/components/ui/sheet";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Logo } from "../logo";
 
 export function FloatingHeader() {
-  const [open, setOpen] = React.useState(false);
-
   const links = [
     {
       label: "About",

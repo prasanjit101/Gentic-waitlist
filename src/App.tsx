@@ -1,9 +1,9 @@
 import { FloatingHeader } from "@/components/ui/floating-header";
-import { cn } from "@/lib/utils";
 import { MeshGradient } from "@paper-design/shaders-react";
 import { Card } from "./components/ui/card";
 import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
+import OfferCarouselDemo from "./components/hero-carousel";
 
 export default function App() {
   return (
@@ -26,10 +26,9 @@ export default function App() {
           height: "100%",
         }}
       />
-      ;
       <FloatingHeader />
       <div className=" my-8 w-full relative z-1 space-y-4">
-        <Card className="flex flex-col p-16">
+        <Card className="flex flex-col p-4 md:p-16">
           <h1 className="text-4xl max-w-lg p-2">
             The most comprehensive AI automation for small business
           </h1>
@@ -39,8 +38,9 @@ export default function App() {
             and be the first to get in.
           </p>
           <TallyForm />
+          <OfferCarouselDemo />
         </Card>
-        <Card className="flex flex-col p-16">
+        <Card className="flex flex-col p-4 md:p-16">
           <Logo showName />
           <p className="max-w-lg text-justify">
             AcMem retains context across sessions, learns from past
@@ -55,16 +55,25 @@ export default function App() {
             and be the first to get in.
           </p>
           <div className="space-y-2">
-            <h3 className="text-bold">Prasanjit Dutta</h3>
+            <h3 className="font-semibold">Prasanjit Dutta</h3>
             <p className="text-sm">Founder, Gentic</p>
           </div>
-          <div className="flex gap-2">
-            Follow us on{" "}
-            <a href="https://x.com/jit_infinity" target="_blank">
-              X
-            </a>
+          <div className="flex flex-col gap-3 py-6">
+            <div>
+              Follow us on{" "}
+              <a
+                href="https://x.com/jit_infinity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-blue-500"
+              >
+                X ( Formerly Twitter )
+              </a>
+            </div>
+            <p className="text-sm text-slate-600">
+              © 2025 Gentic, All Rights Reserved
+            </p>
           </div>
-          <p>© 2025 Gentic, All Rights Reserved</p>
         </Card>
       </div>
     </div>

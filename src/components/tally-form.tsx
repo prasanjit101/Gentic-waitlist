@@ -1,12 +1,20 @@
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    Tally?: {
+      loadEmbeds: () => void;
+    };
+  }
+}
+
 export default function TallyForm() {
   useEffect(() => {
     const d = document;
     const w = "https://tally.so/widgets/embed.js";
     const v = function () {
-      if (typeof Tally !== "undefined") {
-        Tally.loadEmbeds();
+      if (typeof window.Tally !== "undefined") {
+        window.Tally.loadEmbeds();
       } else {
         d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((e) => {
           (e as HTMLIFrameElement).src =
@@ -14,7 +22,7 @@ export default function TallyForm() {
         });
       }
     };
-    if (typeof Tally !== "undefined") v();
+    if (typeof window.Tally !== "undefined") v();
     else if (d.querySelector('script[src="' + w + '"]') == null) {
       const s = d.createElement("script");
       s.src = w;
