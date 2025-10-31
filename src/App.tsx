@@ -1,41 +1,72 @@
-import { useEffect } from "react";
+import { FloatingHeader } from "@/components/ui/floating-header";
+import { cn } from "@/lib/utils";
+import { MeshGradient } from "@paper-design/shaders-react";
+import { Card } from "./components/ui/card";
+import { Logo } from "./components/logo";
+import TallyForm from "./components/tally-form";
 
-function App() {
-  useEffect(() => {
-    const d = document;
-    const w = "https://tally.so/widgets/embed.js";
-    const v = function () {
-      if (typeof Tally !== "undefined") {
-        Tally.loadEmbeds();
-      } else {
-        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((e) => {
-          (e as HTMLIFrameElement).src =
-            (e as HTMLIFrameElement).dataset.tallySrc || "";
-        });
-      }
-    };
-    if (typeof Tally !== "undefined") v();
-    else if (d.querySelector('script[src="' + w + '"]') == null) {
-      const s = d.createElement("script");
-      s.src = w;
-      s.onload = v;
-      s.onerror = v;
-      d.body.appendChild(s);
-    }
-  }, []);
+export default function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <div className="w-full max-w-md">
-        <iframe
-          data-tally-src="https://tally.so/embed/n9670G?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="174"
-          title="Dreamreel Waitlist form"
-        ></iframe>
+    <div className="relative w-full max-w-2xl mx-auto px-4">
+      <MeshGradient
+        width={1280}
+        height={720}
+        colors={["#e0eaff", "#241d9a", "#5e50f7cf", "#4e57d4"]}
+        distortion={0.8}
+        swirl={0.04}
+        grainMixer={0}
+        grainOverlay={0}
+        speed={0.32}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      />
+      ;
+      <FloatingHeader />
+      <div className=" my-8 w-full relative z-1 space-y-4">
+        <Card className="flex flex-col p-16">
+          <h1 className="text-4xl max-w-lg p-2">
+            The most comprehensive AI automation for small business
+          </h1>
+          <p className="max-w-lg p-2">
+            AcMem retains context across sessions, learns from past
+            interactions, and eliminates repetitive prompting. Join our waitlist
+            and be the first to get in.
+          </p>
+          <TallyForm />
+        </Card>
+        <Card className="flex flex-col p-16">
+          <Logo showName />
+          <p className="max-w-lg text-justify">
+            AcMem retains context across sessions, learns from past
+            interactions, and eliminates repetitive prompting. Join our waitlist
+            and be the first to get in. AcMem retains context across sessions,
+            learns from past interactions, and eliminates repetitive prompting.
+            Join our waitlist and be the first to get in. AcMem retains context
+            across sessions, learns from past interactions, and eliminates
+            repetitive prompting. Join our waitlist and be the first to get in.
+            AcMem retains context across sessions, learns from past
+            interactions, and eliminates repetitive prompting. Join our waitlist
+            and be the first to get in.
+          </p>
+          <div className="space-y-2">
+            <h3 className="text-bold">Prasanjit Dutta</h3>
+            <p className="text-sm">Founder, Gentic</p>
+          </div>
+          <div className="flex gap-2">
+            Follow us on{" "}
+            <a href="https://x.com/jit_infinity" target="_blank">
+              X
+            </a>
+          </div>
+          <p>© 2025 Gentic, All Rights Reserved</p>
+        </Card>
       </div>
     </div>
   );
 }
-
-export default App;
