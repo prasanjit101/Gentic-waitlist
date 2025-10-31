@@ -1,15 +1,22 @@
-import { cn } from "@/lib/utils";
-import { Loader } from "lucide-react";
+export const LogoIcon = ({ logoSize }: { logoSize: string }) => {
+  return (
+    <img
+      src="/logo.svg"
+      alt="Gentic Logo"
+      className={"text-primary " + logoSize}
+    />
+  );
+};
 
-export const Logo = ({
-  showName = false,
-  className,
-}: {
-  className?: string;
-  showName?: boolean;
-}) => (
-  <div className={cn("flex gap-2 items-center", className)}>
-    <Loader className="size-5" />
-    {showName && <p className="font-mono text-base font-bold">Asme</p>}
-  </div>
-);
+export const Logo = ({ loading = false, className, showName = false, logoSize = 'w-8 h-8' }: { className?: string; loading?: boolean; showName?: boolean; logoSize?: string }) => {
+  return (
+    <div className={"font-semibold flex items-center gap-2 " + className}>
+      <LogoIcon logoSize={logoSize} />
+      {showName && (
+        <span className="text-lg tracking-tight font-bold text-primary">
+          {loading ? 'Loading...' : 'Gentic'}
+        </span>
+      )}
+    </div>
+  );
+};

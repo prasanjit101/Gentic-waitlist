@@ -2,6 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils"; // Your utility for merging Tailwind classes
+import { Button } from "@/components/ui/button";
 
 // Define the type for a single items item
 export interface Item {
@@ -10,6 +11,8 @@ export interface Item {
   imageAlt: string;
   title: string;
   description: string;
+  link?: string;
+  linkText?: string;
 }
 
 // Props for the OfferCard component
@@ -21,7 +24,7 @@ interface ItemCardProps {
 const ItemCard = React.forwardRef<HTMLAnchorElement, ItemCardProps>(
   ({ item }) => (
     <motion.div
-      className="relative shrink-0 w-[300px] h-[350px] rounded-2xl overflow-hidden group snap-start"
+      className="relative shrink-0 w-[300px] h-[350px] rounded-xl overflow-hidden group snap-start"
       whileHover={{ y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{ perspective: "1000px" }}
@@ -41,6 +44,18 @@ const ItemCard = React.forwardRef<HTMLAnchorElement, ItemCardProps>(
           </h3>
           <p className="text-sm text-muted-foreground">{item.description}</p>
         </div>
+
+        {item.link && (
+          <Button asChild size={'sm'} className="w-fit px-4">
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.linkText || "Learn More"}
+            </a>
+          </Button>
+        )}
       </div>
     </motion.div>
   ),

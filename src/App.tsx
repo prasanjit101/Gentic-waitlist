@@ -4,6 +4,10 @@ import { Card } from "./components/ui/card";
 import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
 import HeroImage from "./components/hero-image";
+import HeroCarousel from "./components/hero-carousel";
+import { ItemCarousel } from "@/components/carousel";
+import { projects } from "./lib/projects";
+import { Badge } from "./components/ui/badge";
 
 export default function App() {
   return (
@@ -29,30 +33,23 @@ export default function App() {
       <FloatingHeader />
       <div className=" my-8 w-full relative z-1 space-y-4">
         <Card className="flex flex-col p-4 md:p-16">
+          <Badge variant={'outline'}>For growing businesses with digital operations</Badge>
           <h1 className="text-4xl max-w-lg p-2">
-            The most comprehensive AI automation for small business
+            {/* The one-liner of the product */}
+            Describe your goal and turn it into automations.
           </h1>
           <p className="max-w-lg p-2">
-            AcMem retains context across sessions, learns from past
-            interactions, and eliminates repetitive prompting. Join our waitlist
-            and be the first to get in.
+            {/* Subheading */}
+            Gentic helps small businesses grow faster and serve their users better by providing an all-in-one platform to build AI automations without code and easily interact with and manage their outputs and other data.
           </p>
           <TallyForm />
-          <HeroImage />
+          <HeroImage caption="in progress" />
         </Card>
         <Card className="flex flex-col p-4 md:p-16" id="about">
           <Logo showName />
           <p className="max-w-lg text-justify">
-            AcMem retains context across sessions, learns from past
-            interactions, and eliminates repetitive prompting. Join our waitlist
-            and be the first to get in. AcMem retains context across sessions,
-            learns from past interactions, and eliminates repetitive prompting.
-            Join our waitlist and be the first to get in. AcMem retains context
-            across sessions, learns from past interactions, and eliminates
-            repetitive prompting. Join our waitlist and be the first to get in.
-            AcMem retains context across sessions, learns from past
-            interactions, and eliminates repetitive prompting. Join our waitlist
-            and be the first to get in.
+            {/* Explain why the product exists. structured as - the problem faced by a niche, the solution offered by the product */}
+            As a small business owner operating digitally, managing multiple tools and platforms to handle customer interactions, data management, and automation can be overwhelming and time-consuming. Gentic was created to address this challenge by providing an all-in-one platform that allows small businesses to easily create AI-driven automations without any coding knowledge. By simplifying the process of building and managing automations, Gentic empowers small businesses to enhance their operations, improve customer experiences, and ultimately grow faster in a competitive market.
           </p>
           <div className="space-y-2">
             <h3 className="font-semibold">Prasanjit Dutta</h3>
@@ -60,7 +57,7 @@ export default function App() {
           </div>
           <div className="flex flex-col gap-3 py-6">
             <div>
-              Follow us on{" "}
+              Follow me on{" "}
               <a
                 href="https://x.com/jit_infinity"
                 target="_blank"
@@ -74,6 +71,10 @@ export default function App() {
               © 2025 Gentic, All Rights Reserved
             </p>
           </div>
+        </Card>
+        <Card className="flex flex-col p-4 md:p-16" id="projects">
+          <h2 className="text-lg font-semibold mb-4">Also check out</h2>
+          <ItemCarousel items={projects} />
         </Card>
       </div>
     </div>

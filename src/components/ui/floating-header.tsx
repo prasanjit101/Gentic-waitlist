@@ -5,7 +5,7 @@ import { Logo } from "../logo";
 export function FloatingHeader() {
   const links = [
     {
-      label: "About",
+      label: "Why Gentic?",
       href: "#about",
     },
   ];
