@@ -4,7 +4,6 @@ import { Card } from "./components/ui/card";
 import { Logo } from "./components/logo";
 import TallyForm from "./components/tally-form";
 import HeroImage from "./components/hero-image";
-import HeroCarousel from "./components/hero-carousel";
 import { ItemCarousel } from "@/components/carousel";
 import { projects } from "./lib/projects";
 import { Badge } from "./components/ui/badge";
