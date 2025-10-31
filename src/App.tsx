@@ -12,8 +12,8 @@ export default function App() {
   return (
     <div className="relative w-full max-w-2xl mx-auto px-3 sm:px-4" id="waitlist">
       <MeshGradient
-        width={1280}
-        height={720}
+        width="100%"
+        height="100%"
         colors={["#e0eaff", "#241d9a", "#5e50f7cf", "#4e57d4"]}
         distortion={0.8}
         swirl={0.04}
@@ -39,7 +39,7 @@ export default function App() {
           </h1>
           <p className="max-w-lg p-2 text-sm sm:text-base">
             {/* Subheading */}
-            Gentic helps small businesses grow faster and serve their users better by providing an all-in-one platform to build AI automations without code and easily interact with and manage their outputs and other data.
+            Gentic helps your business grow faster and operate more efficiently by providing an all-in-one platform that centralizes and automates AI-powered workflows—no code required. Reduce your dependency on multiple costly tools with one easy-to-use solution.
           </p>
           <TallyForm />
           <HeroImage caption="in progress" />
