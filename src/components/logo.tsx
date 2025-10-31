@@ -10,10 +10,10 @@ export const LogoIcon = ({ logoSize }: { logoSize: string }) => {
 
 export const Logo = ({ loading = false, className, showName = false, logoSize = 'w-8 h-8' }: { className?: string; loading?: boolean; showName?: boolean; logoSize?: string }) => {
   return (
-    <div className={"font-semibold flex items-center gap-2 " + className}>
+    <div className={"font-semibold flex items-center gap-1.5 sm:gap-2 " + className}>
       <LogoIcon logoSize={logoSize} />
       {showName && (
-        <span className="text-lg tracking-tight font-bold text-primary">
+        <span className="text-sm sm:text-base md:text-lg tracking-tight font-bold text-primary">
           {loading ? 'Loading...' : 'Gentic'}
         </span>
       )}
